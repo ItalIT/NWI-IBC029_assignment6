@@ -31,3 +31,25 @@ instance (Rank key) ⇒ Rank [key] where
 repeatedSegments ∷ (Rank key) ⇒ Int → [key] → [[Integer]]
 
 instance Rank Base where
+
+--------------------------------------------------------------------------------
+author: Hendrik Werner s4549775
+author: Jasper Haasdijk s4449754
+
+exercise 6.1
+============
+
+exercise 6.2
+============
+
+exercise 6.3
+============
+
+exercise 6.4
+============
+
+exercise 6.5
+============
+
+exercise 6.6
+============
