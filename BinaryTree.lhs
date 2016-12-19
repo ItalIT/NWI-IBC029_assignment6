@@ -25,3 +25,34 @@ layout ∷ (Show elem) => Tree elem → String
 build ∷ [elem] → Tree elem
 balanced ∷ [elem] → Tree elem
 create ∷ Int → Tree ()
+
+--------------------------------------------------------------------------------
+author: Hendrik Werner s4549775
+author: Jasper Haasdijk s4449754
+
+exercise 1
+==========
+
+> instance (Eq elem) => Eq (Tree elem) where
+>     Empty == Empty = True
+>     (Node _ _ _) == Empty = False
+>     Empty == (Node _ _ _) = False
+>     (Node l0 k0 r0) == (Node l1 k1 r1) = k0 == k1 && l0 == l1 && r0 == r1
+
+> instance (Ord elem) => Ord (Tree elem) where
+>     compare Empty Empty = EQ
+>     compare Empty (Node _ _ _) = LT
+>     compare (Node _ _ _) Empty = GT
+>     compare (Node l0 k0 r0) (Node l1 k1 r1)
+>         | k0 == k1 = compare l0 l1
+>         | otherwise = case compare k0 k1 of
+>             LT -> LT
+>             GT -> GT
+>             EQ -> compare r0 r1
+
+Trees, like anything, can be stored in Trees/Sets themselfs. If you store trees
+in a binary search tree you must be able to comapre and sort them.
+
+Equality is well defined while the ordering is pretty arbitrary but that does
+not matter to our data structures, they just need a total ordering. It does not
+have to make sense, just be consistent.
