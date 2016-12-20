@@ -91,6 +91,19 @@ and / nAnd
 10 0 1
 11 1 0
 
+> newtype AndMonoid = AndMonoid Bool
+>     deriving(Show)
+
+> instance Monoid AndMonoid where
+>     ε = AndMonoid True
+>     (•) (AndMonoid x) (AndMonoid y) = AndMonoid $ x && y
+
+You cannot make a Monoid from nAnd because it is not associative.
+
+(True nAnd False) nAnd False != True nAnd (False nAnd False)
+True nAnd False != True nAnd True
+True != False
+
 or / nOr
 
 00 0 1
