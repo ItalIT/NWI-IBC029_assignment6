@@ -243,6 +243,17 @@ exercise 4.3
 exercise 5.1
 ============
 
+We did not really know what exactly to do here. We did not know how to turn an
+enumeration type into a Monoid so we looked at 5.2 and we think you have to
+implement it as
+
+> newtype KPGMonoid = KPGMonoid (Carry -> Carry)
+
+> instance Monoid KPGMonoid where
+>     ε = KPGMonoid id
+>     (KPGMonoid a) • (KPGMonoid b)
+>         = KPGMonoid $ a . b
+
 exercise 5.2
 ============
 
