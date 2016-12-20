@@ -171,6 +171,10 @@ We cannot choose either True or False since it depends on the input
 exercise 2.2
 ============
 
+For the following functions there is already a function predefined:
+And: and
+Or: or
+
 exercise 3
 ==========
 
