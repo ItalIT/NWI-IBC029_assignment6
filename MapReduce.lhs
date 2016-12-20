@@ -4,6 +4,7 @@
 > import Prelude hiding (Monoid)
 > import Unicode
 > import Hardware
+> import Data.List
 
 > class Monoid a where
 >   ε    ∷  a
@@ -177,6 +178,33 @@ Or: or
 
 exercise 3
 ==========
+
+> newtype OrderedListMonoid a = OrderedListMonoid [a]
+>     deriving(Show)
+
+> instance (Ord a) => Monoid (OrderedListMonoid a) where
+>     ε = OrderedListMonoid []
+>     (OrderedListMonoid a) • (OrderedListMonoid b)
+>         = OrderedListMonoid $ merge a b
+
+> merge :: (Ord a) => [a] -> [a] -> [a]
+> merge [] [] = []
+> merge a [] = a
+> merge [] a = a
+> merge (a:as) (b:bs)
+>     | a < b = a : (merge as (b:bs))
+>     | otherwise = b : (merge (a:as) bs)
+
+Yes, you can use monoids to implement mergesort. You can use the merge function
+defined above.
+
+> newtype OrderMonoid a = OrderMonoid [a]
+>     deriving(Show)
+
+> instance (Ord a) => Monoid (OrderMonoid a) where
+>     ε = OrderMonoid []
+>     (OrderMonoid a) • (OrderMonoid b)
+>         = OrderMonoid $ merge a b
 
 exercise 4.1
 ============
