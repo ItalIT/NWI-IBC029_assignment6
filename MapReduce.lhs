@@ -232,6 +232,14 @@ exercise 4.2
 exercise 4.3
 ============
 
+> foldmBu :: (a -> a -> a) -> a -> [a] -> a
+> foldmBu _f n [] = n
+> foldmBu f n [x] = f n x
+> foldmBu f n l = foldmBu f n $ pairwise f n l
+>     where pairwise _f n [] = []
+>           pairwise f n (a0:a1:as) = f a0 a1 : pairwise f n as
+>           pairwise f n (a:as) = f n a : pairwise f n as
+
 exercise 5.1
 ============
 
