@@ -105,6 +105,13 @@ implicatie / nImplicatie
 10 0 1
 11 1 0
 
+onlyFirstBit / nOnlyFirstBit
+
+00 0 1
+01 1 0
+10 0 1
+11 0 1
+
 exercise 2.2
 ============
 
