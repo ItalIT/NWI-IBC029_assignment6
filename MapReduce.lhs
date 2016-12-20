@@ -35,6 +35,76 @@ author: Jasper Haasdijk s4449754
 exercise 2.1
 ============
 
+constTrue
+
+00 1
+01 1
+10 1
+11 1
+
+constFalse
+
+00 0
+01 0
+10 0
+11 0
+
+first
+
+00 0
+01 0
+10 1
+11 1
+
+negateFirst
+
+00 1
+01 1
+10 0
+11 0
+
+second
+
+00 0
+01 1
+10 0
+11 1
+
+negateSecond
+
+00 1
+01 0
+10 1
+11 0
+
+xOr / xNor
+
+00 0 1
+01 1 0
+10 1 0
+11 0 1
+
+and / nAnd
+
+00 0 1
+01 0 1
+10 0 1
+11 1 0
+
+or / nOr
+
+00 0 1
+01 1 0
+10 1 0
+11 1 0
+
+implicatie / nImplicatie
+
+00 1 0
+01 1 0
+10 0 1
+11 1 0
+
 exercise 2.2
 ============
 
