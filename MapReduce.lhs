@@ -223,6 +223,12 @@ same.
 exercise 4.2
 ============
 
+> foldmTd :: (a -> a -> a) -> a -> [a] -> a
+> foldmTd f n [] = n
+> foldmTd f n [x] = f n x
+> foldmTd f n l = f (foldmTd f n $ take len l) (foldmTd f n $ drop len l) 
+>     where len = length l `div` 2
+
 exercise 4.3
 ============
 
