@@ -209,6 +209,17 @@ defined above.
 exercise 4.1
 ============
 
+The predefined functions foldr and foldl in Haskell are more generic than our
+foldm. We define foldm on lists but foldl and foldr are defined for Foldables
+which include Lists and other things.
+
+The other difference is that the elements for foldl and foldr can be of another
+type than the result. This is the case because for foldr the result type b is
+always on the right, for foldl the result type is always on the left.
+
+For foldl the result is on both sides so the element and result type must be the
+same.
+
 exercise 4.2
 ============
 
