@@ -51,7 +51,7 @@ exercise 1
 >             EQ -> compare r0 r1
 
 Trees, like anything, can be stored in Trees/Sets themselfs. If you store trees
-in a binary search tree you must be able to comapre and sort them.
+in a binary search tree you must be able to compare and sort them.
 
 Equality is well defined while the ordering is pretty arbitrary but that does
 not matter to our data structures, they just need a total ordering. It does not
