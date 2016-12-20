@@ -267,7 +267,7 @@ apply :: KPGMonoid -> (Carry -> Carry)
 apply id = id
 apply (a • b) = apply a . apply b
 
-The problem is that we cannot match in functions. So we are also stuck at this
+The problem is that we cannot match on functions. So we are also stuck at this
 point.
 
 exercise 5.3
