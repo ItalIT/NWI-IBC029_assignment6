@@ -257,6 +257,19 @@ implement it as
 exercise 5.2
 ============
 
+We are even less sure what to do here. We need to define an apply function for
+an enumeration type?
+
+Further down it says "the KPG monoid" while KPG is clearly defined as an
+enumeration type but that makes more sense so we will go with it.
+
+apply :: KPGMonoid -> (Carry -> Carry)
+apply id = id
+apply (a • b) = apply a . apply b
+
+The problem is that we cannot match in functions. So we are also stuck at this
+point.
+
 exercise 5.3
 ============
 
