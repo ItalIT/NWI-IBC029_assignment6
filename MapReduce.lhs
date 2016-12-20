@@ -77,12 +77,36 @@ negateSecond
 10 1
 11 0
 
+newtype Second = SecondCons Bool
+instance Monoid Second where
+     ε = ?
+     x • y = y
+
+Showing with this example:
+For all of the above we cannot define a monoid as the ε depends on the input.
+
 xOr / xNor
 
 00 0 1
 01 1 0
 10 1 0
 11 0 1
+
+> newtype Xor = XorCons Bool
+>               deriving(Show)
+> instance Monoid Xor where
+>      ε = XorCons False
+>      (XorCons x) • (XorCons y)
+>          | x == y = XorCons False
+>          | otherwise = XorCons True
+
+> newtype XNor = XNorCons Bool
+>               deriving(Show)
+> instance Monoid XNor where
+>      ε = XNorCons True
+>      (XNorCons x) • (XNorCons y)
+>          | x == y = XNorCons True
+>          | otherwise = XNorCons False
 
 and / nAnd
 
@@ -111,6 +135,15 @@ or / nOr
 10 1 0
 11 1 0
 
+> newtype Or = OrCons Bool
+>             deriving(Show)
+> instance Monoid Or where
+>      ε = OrCons False
+>      (OrCons x) • (OrCons y) = OrCons (x || y)
+
+nOr is not possible because it is not associative
+(True nOr False) nOr False != True nOr (False nOr False)
+
 implicatie / nImplicatie
 
 00 1 0
@@ -131,6 +164,9 @@ onlyFirstBit / nOnlyFirstBit
 01 1 0
 10 0 1
 11 0 1
+
+onlyFirstBit is not possible since there exists no ε where a • ε = a
+We cannot choose either True or False since it depends on the input
 
 exercise 2.2
 ============
