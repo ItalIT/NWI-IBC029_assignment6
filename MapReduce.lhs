@@ -118,6 +118,13 @@ implicatie / nImplicatie
 10 0 1
 11 1 0
 
+Implication is not associative so we cannot make a monoid from it.
+
+False -> _ = True
+(False -> _) -> False = False
+
+The same is true for the negated implication.
+
 onlyFirstBit / nOnlyFirstBit
 
 00 0 1
